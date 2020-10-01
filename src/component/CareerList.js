@@ -4,6 +4,9 @@ import ColumnTitle from './ColumnTitle.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
 import DoughnutExample from './doughnut';
+import "@fortawesome/fontawesome-svg-core/styles.css"
+import { config } from "@fortawesome/fontawesome-svg-core"
+config.autoAddCss = false
 
 const CareerList01 = () => (
   <List>
