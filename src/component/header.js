@@ -1,6 +1,7 @@
 import React from "react"
-import { Link,graphql,useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import styled from 'styled-components'
+import { media } from "../utils/style-utils"
 
 
 const Header = () =>{
@@ -12,34 +13,51 @@ const Header = () =>{
           <Link to={"/"}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="343"
-            height="68"
-            fill="none"
-            fillRule="evenodd"
-           >
-          <text
-              fill="#515151"
-              fontFamily="ArialRoundedMTBold, Arial Rounded MT Bold"
-              fontSize="36"
+            width="226"
+            height="45"
+            viewBox="0 0 226 45"
           >
-          <tspan x="76" y="48">
-          Yusaku Sogabe
-          </tspan>
-          </text>
-          <g strokeWidth="2">
-            <circle cx="34" cy="34" r="33" fill="#515151" stroke="#515151"></circle>
-            <g stroke="#fff">
-              <path d="M54 15a.997.997 0 011 1h0v38H13V16a.997.997 0 011-1h0z"></path>
-              <path strokeLinecap="square" d="M14 20h39"></path>
+            <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
+              <g transform="translate(1 1)">
+                <text
+                  fill="#515151"
+                  fillRule="nonzero"
+                  fontFamily="ArialRoundedMTBold, Arial Rounded MT Bold"
+                  fontSize="23"
+                  fontWeight="normal"
+                >
+                  <tspan x="49.439" y="31.386">
+                    Yusaku Sogabe
+                  </tspan>
+                </text>
+                <g>
+                  <circle
+                    cx="21.693"
+                    cy="21.693"
+                    r="21.693"
+                    fill="#515151"
+                    fillRule="nonzero"
+                    stroke="#515151"
+                  ></circle>
+                  <g stroke="#FFF" transform="translate(7.888 9.203)">
+                    <path d="M26.952 0a.655.655 0 01.657.657h0v24.98H0V.657A.655.655 0 01.657 0h26.295z"></path>
+                    <path strokeLinecap="square" d="M0.657 3.287L26.294 3.287"></path>
+                  </g>
+                </g>
+                <g
+                  stroke="#FFF"
+                  strokeLinecap="round"
+                  strokeWidth="2"
+                  transform="translate(13.117 19.17)"
+                >
+                  <path d="M11.675 0L6.486 9.081"></path>
+                  <path
+                    strokeLinejoin="round"
+                    d="M14.27 7.135l3.891-2.602-3.884-2.595m-10.385.008L0 4.54l3.892 2.595"
+                  ></path>
+                </g>
+              </g>
             </g>
-          </g>
-          <g stroke="#fff" strokeLinecap="round" strokeWidth="2">
-            <path d="M38 30l-8 14"></path>
-            <path
-              strokeLinejoin="round"
-              d="M42 41l6-4.012-5.988-4M26 33l-6 4 6 4"
-            ></path>
-          </g>
           </svg>
           </Link>
         </Site>
@@ -59,18 +77,25 @@ const HeaderColor = styled.header`
 `
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   height: 134px;
   width: 84%;
 	max-width: 1147px;
   margin: 0 auto;
-  align-items: center;
-  justify-content: space-between;
+  ${media.handheld768`
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+  `}
 `
 
 const Site = styled.div`
- width: 343px;
+ max-width: 226px;
+ width: auto;
+ height: auto;
 `
 const Navul = styled.ul`
 	display: flex;

@@ -3,11 +3,12 @@ import React from "react"
 import { graphql,useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import { media } from "../utils/style-utils"
+import { useWindowDimensions } from "../utils/windowsize"
 
 const Headerbox = styled.header`
 width: 100%;
 height: 430px;
-margin: 0 auto;
 font-family: Roboto;
 position: relative;
 `
@@ -19,53 +20,77 @@ height: 430px;
 
 const Top = styled(Img)`
 width: 100%;
-height: 430px;
+height: auto;
 object-fit: cover;
 `
 
 const Headerinner = styled.div`
-width: 960px;
-height: 276px;
-margin: auto;
+max-width: 1147px;
+width: 84%;
+max-height: 276px;
+height: auto;
 position: absolute;
+margin: auto;
 top: 0;
 right: 0;
 bottom: 0;
 left: 0;
+
+  ${media.handheld768`
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    `}
 `
 
 const Headerleft = styled.div`
-width: 275px;
-height: 276px;
+margin: 0 auto;
+max-width: 275px;
+width: 100%;
+height: auto;
 color: white;
-float: left;
 border: 2px solid rgba(255, 255, 255, 0.5);
 box-sizing: border-box;
 text-align: center;
-z-index: 1;
-position: absolute;
-left: 0;
 padding-top: 31px;
+position: relative;
+z-index: 1;
+&.ON{
+  transform: translateX(-${props => props.site}px);
+  transition-timing-function: ease-in-out;
+  transition-duration: 1s;
+}
 `
 
 const Headerright = styled.div`
-width: 612px;
-height: 276px;
+display: none;
+margin: 0 auto;
+max-width: 612px;
+width: 50%;
+height: auto;
 color:white;
-float: right;
 font-style: normal;
 font-weight: normal;
+&:hover {
+  transform: translateX(400px);
+  transition-timing-function: ease-in-out;
+  transition-duration: 1s;
+}
 `
 
 const Line = styled.div`
 position: absolute;
-width: 271px;
+width: 100%;
 height: 0px;
 left: 0;
-top: 97px;
+top: 0;
+margin-top:35%;
 border: 1px solid rgba(255, 255, 255, 0.5);
 box-sizing: border-box;
-z-index:-1;
+z-index: -1;
 `
 
 
@@ -114,8 +139,48 @@ line-height: 28px;
 width: 147px;
 `
 
-const Header = () => {
 
+const Header = (props) => {
+
+  class Toggle extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {isToggleOn: true};
+      this.handleClick = this.handleClick.bind(this);
+    }
+  
+    handleClick() {
+      this.setState(state => ({
+        isToggleOn: !state.isToggleOn
+      }));
+    }
+  
+    render() {
+      return (
+        <Headerleft 
+        isOpen={props.isOpen} 
+        onClick={this.handleClick}
+        site={widthchange(width)}
+        className={this.state.isToggleOn ? 'ON' : 'OFF'}
+        >
+        <Thumb
+          fluid={data.thumb.childImageSharp.fluid}
+          alt=""
+        />
+        <Name1>Yusaku Sogabe</Name1>
+        <Career>Front Engineer</Career>
+        <Line />
+      </Headerleft>
+      );
+    }
+  }
+
+  const { width, height } = useWindowDimensions();
+  const widthchange = (width) => (
+    (width >= 1366) ?　436:
+    (width >= 768) ? 436-((1366-width)*0.42):
+    0
+  )
   const data = useStaticQuery(graphql`
     query {
       top: file(relativePath: {eq: "Rectangle.png"}) {
@@ -145,15 +210,7 @@ const Header = () => {
           />
       </Headerback>
       <Headerinner>
-        <Headerleft>
-          <Thumb
-            fluid={data.thumb.childImageSharp.fluid}
-            alt=""
-          />
-          <Name1>Yusaku Sogabe</Name1>
-          <Career>Front Engineer</Career>
-          <Line />
-        </Headerleft>
+        <Toggle />
         <Headerright>
         <Des>デザインとコーディングの勉強をしています。
         <br /> 現在はJavaScriptの奥深さに悪戦苦闘中。

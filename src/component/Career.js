@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 `
 
 const Block = styled.div`
-  width: 90%;
-  max-width: 1200px;
+  width: 84%;
+  max-width: 1147px;
   margin: 0 auto;
 `

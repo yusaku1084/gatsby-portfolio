@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import ColumnTitle from './ColumnTitle.js'
-import { graphql,useStaticQuery } from "gatsby"
+import { graphql,useStaticQuery,Link } from "gatsby"
 import Img from "gatsby-image"
+import { media } from "../utils/style-utils"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
 import "@fortawesome/fontawesome-svg-core/styles.css"
@@ -34,17 +35,41 @@ const CareerList = () => {
           }
         }
       }
+      allContentfulBlogPost(sort: { order: DESC, fields:publishDate },
+        skip: 0,
+        limit: 4
+        ) {
+        edges {
+          node {
+            publishDateJP: publishDate(formatString: "YYYY.MM.DD")
+            publishDate
+            title
+            slug
+            id
+          }
+        }
+      }
     }
   `)
 
   return (
     <List>
       <Content>
-        <Icon icon={faAddressBook} color="#C4C4C4" />
         <ColumnTitle title="BLOG" />
+        <div className="container">
+        <div className="posts">
+          {data.allContentfulBlogPost.edges.map(({node}) => (
+            <Blog key={node.id}>
+              <Link to={`/blog/post/${node.slug}/`}>
+                <time dateTime={node.publishDate}>{node.publishDateJP}</time>
+                <Blogtitle>{node.title}</Blogtitle>
+              </Link>
+            </Blog>
+          ))}
+        </div>
+      </div>
       </Content>
       <Content>
-        <Icon icon={faAddressBook} color="#C4C4C4" />
         <ColumnTitle title="INTEREST" />
           <Items>
             <Item>
@@ -68,16 +93,18 @@ const CareerList = () => {
 export default CareerList
 
 const List = styled.div`
-  display:-webkit-box;
-  display:-ms-flexbox;
-  display:flex;
-  -webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-  justify-content: space-between;
+  ${media.handheld768`
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  `}
 `
 
 const Content = styled.div`
-  width: 100%;
+  width: 85%;
   padding-left: 25px;
   position: relative;
 `
@@ -87,6 +114,18 @@ const Icon = styled(FontAwesomeIcon)`
   position: absolute;
   left: 17px;
   top: 13px;
+`
+const Blog = styled.article`
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display: inline-flex;
+  margin-bottom: 15px;
+  padding-left: 25px;
+`
+const Blogtitle = styled.p`
+  font-weight: bold;
+  display: inline;
+  margin-left : 30px;
 `
 
 /*const Block = styled.div`
@@ -184,8 +223,9 @@ const Item = styled.div`
 `
 
 const IntImg = styled(Img)`
-width: 128px;
-height: 128px;
+max-width: 128px;
+width: 85%;
+height: auto;
 border-radius: 50%;
 margin: 0 auto auto
 `

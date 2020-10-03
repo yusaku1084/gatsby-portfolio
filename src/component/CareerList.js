@@ -4,6 +4,7 @@ import ColumnTitle from './ColumnTitle.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
 import DoughnutExample from './doughnut';
+import { media } from "../utils/style-utils"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 config.autoAddCss = false
@@ -11,7 +12,6 @@ config.autoAddCss = false
 const CareerList01 = () => (
   <List>
     <Content>
-    <Icon icon={faAddressBook} color="#C4C4C4" />
     <ColumnTitle title="EXPERIENCE" />
       <Block>
         <Border />      
@@ -33,7 +33,7 @@ const CareerList01 = () => (
       </TextDetail>
     </Content>
     <Content>
-    <Icon icon={faAddressBook} color="#C4C4C4" /><ColumnTitle title="EDUCATION" />
+    <ColumnTitle title="EDUCATION" />
       <TextDetail>
         <TextBold>先端社会デザインコース | 2017.04 - 2021.03<br />立命館大学 情報理工学部</TextBold>
       </TextDetail>
@@ -43,43 +43,51 @@ const CareerList01 = () => (
 
 const CareerList02 = () => (
   <List>
-    <ExContent>
-    <Icon icon={faAddressBook} color="#C4C4C4" /><ColumnTitle title="SKILL" />
-    <SkillText2>Coding</SkillText2>
+    <Content>
+      <Title>
+        <ColumnTitle title="SKILL" />
+      </Title>
+      <SkillText2>Coding</SkillText2>
       <Block>
+        <Blocknode>
         <SkillText>JavaScript</SkillText>
         <Dots><GDot /><GDot /><GDot /><Dot /><Dot /></Dots>
+        </Blocknode>
         <SkillComment>ReactJS,GatsbyJS,TypeScriptを勉強中</SkillComment>
       </Block>
       <Block>
-        <SkillText>HTML/CSS</SkillText>
-        <Dots><GDot /><GDot /><GDot /><Dot /><Dot /></Dots>
-        <SkillComment>基本はマスター</SkillComment> 
+        <Blocknode>
+          <SkillText>HTML/CSS</SkillText>
+          <Dots><GDot /><GDot /><GDot /><Dot /><Dot /></Dots>
+        </Blocknode>
+          <SkillComment>基本はマスター</SkillComment> 
       </Block>
       <Block>
-        <SkillText>Python</SkillText>
-        <Dots><GDot /><GDot /><Dot /><Dot /><Dot /></Dots>
+        <Blocknode>
+          <SkillText>Python</SkillText>
+          <Dots><GDot /><GDot /><Dot /><Dot /><Dot /></Dots>
+        </Blocknode>
         <SkillComment>学校で主に使用。研究などでもこの言語</SkillComment>     
       </Block>
       <SkillText2>Design</SkillText2>
       <Block>
-        <SkillText>Sketh</SkillText>
-        <Dots><GDot /><GDot /><GDot /><Dot /><Dot /></Dots>
+        <Blocknode>
+          <SkillText>Sketh</SkillText>
+          <Dots><GDot /><GDot /><GDot /><Dot /><Dot /></Dots>
+        </Blocknode>
         <SkillComment>普段はこれを使用</SkillComment>     
       </Block>
       <Block>
-        <SkillText>PhotoShop</SkillText>
-        <Dots><GDot /><Dot /><Dot /><Dot /><Dot /></Dots>
+        <Blocknode>
+          <SkillText>PhotoShop</SkillText>
+          <Dots><GDot /><Dot /><Dot /><Dot /><Dot /></Dots>
+        </Blocknode>
         <SkillComment>基本的なことはできる</SkillComment>     
       </Block>
-    </ExContent>
+    </Content>
     <Content>
-    <Icon icon={faAddressBook} color="#C4C4C4" /><ColumnTitle title="PERSONAL QUALITIES" />
-      <Contloler>
-          <Doughnutdraw title="" />
-          <DoughnutExample />
-          <DoughnutExample />
-      </Contloler>
+     <ColumnTitle title="PERSONAL QUALITIES" />
+      
     </Content>
   </List>
 )
@@ -102,34 +110,44 @@ const CareerList = () => (
 
 export default CareerList
 
+const Title = styled.div`
+display:-webkit-box;
+display:-ms-flexbox;
+display:flex;
+-webkit-box-pack: justify;
+-ms-flex-pack: justify;
+justify-content: space-between;
+`
+
 const List = styled.div`
-  display:-webkit-box;
-  display:-ms-flexbox;
-  display:flex;
-  -webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-  justify-content: space-between;
+  ${media.handheld768`
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    `}
 `
 
 const Content = styled.div`
-  width: 100%;
-  padding-left: 25px;
+  max-width: 550px;
+  width : 100%;
   position: relative;
-`
-
-const ExContent = styled(Content)`
-`
-
-const Icon = styled(FontAwesomeIcon)`
-  position: absolute;
-  left: 17px;
-  top: 13px;
+  ${media.handheld768`
+    width : 48%;
+    `}
 `
 
 const Block = styled.div`
+
+`
+
+const Blocknode = styled.div`
   display:-webkit-box;
   display:-ms-flexbox;
   display:flex;
+  width: auto;
 `
 
 const Border = styled.div`
@@ -151,19 +169,6 @@ const Text = styled.p`
 const TextBold = styled(Text)`
   position: relative;
   font-weight: bold;
-  &::before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: -28px;
-    width: 5px;
-    height: 5px;
-    background: #C4C4C4;
-    border-radius: 50%;
-    margin: 3px 0;
-
-  }
 `
 
 const TextBold2 = styled(TextBold)`
@@ -173,7 +178,7 @@ const TextBold2 = styled(TextBold)`
 `
 
 const SkillText = styled(Text)`
-  padding-left: 25px;
+  padding-left: 30px;
   font-size: 14px;
   width: 20%;
   min-width: 110px;
@@ -191,7 +196,7 @@ const Dots = styled.div`
   display:-ms-flexbox;
   display:flex;
   margin: 10px 3% 0 5%;
-  width: 15%;
+  width: auto;
 
 `
 
@@ -208,10 +213,10 @@ const GDot = styled(Dot)`
 `
 
 const SkillComment = styled(SkillText)`
-  width: 70%;
+  width:100%;
   max-width: 270px;
   font-weight: 500;
-  padding-left: 0;
+  padding-left: 30px;
 `
 
 const Contloler = styled.div`

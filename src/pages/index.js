@@ -12,12 +12,16 @@ const Index = () => (
   <div>
     <Layout>
       <SEO />
-      <Me />
+      <Me isOpen="true"/>
       <SubTitle 
         subtitle= "WORKS"
         exp= "制作実績など"
       />
-      <Works />
+      <Works
+        pagenum2 = "2"
+        pagenum3 = "3"
+        pagenum4 = "4"
+      />
       <Career />
       <SubTitle
         subtitle= "ACTIVITY"

@@ -4,8 +4,9 @@ import styled from 'styled-components'
 import Img from "gatsby-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { media } from "../utils/style-utils"
 
-const Works = () => {
+const Works = (props) => {
 
   const data = useStaticQuery(graphql`
     query {
@@ -33,32 +34,79 @@ const Works = () => {
     }
   `)
 
+
   return(
-    <WorksWrapper>
-      <Box>
-        <WorksContent
-          href="/page-2"
-          fluid={data.out01.childImageSharp.fluid}
-          alt="実績①"
-          site="RIXIS SPsite"
-          cording="design / Sketch"
-        />
-        <WorksContent
-          href="/page-3"
-          fluid={data.out02.childImageSharp.fluid}
-          alt="実績②"
-          site="袴美人サイト"
-          cording="design / Sketch"
-        />
-        <WorksContent
-          href="/page-4"
-          fluid={data.out03.childImageSharp.fluid}
-          alt="実績③"
-          site="Portfolio"
-          cording="coding / GatsbyJS"
-        />
-      </Box>
-    </WorksWrapper>
+    <>
+      {props.change ? 
+      <Work change="true">
+      <WorksWrapper change="true">
+        <Box change="true">
+          {props.pagenum2 &&
+            <WorksContent
+              href="/page-2"
+              fluid={data.out01.childImageSharp.fluid}
+              alt="実績①"
+              site="RIXIS SPsite"
+              cording="design / Sketch"
+            />
+          }
+          {props.pagenum3 &&
+            <WorksContent
+              href="/page-3"
+              fluid={data.out02.childImageSharp.fluid}
+              alt="実績②"
+              site="袴美人サイト"
+              cording="design / Sketch"
+            />
+          }
+          {props.pagenum4 &&
+            <WorksContent
+              href="/page-4"
+              fluid={data.out03.childImageSharp.fluid}
+              alt="実績③"
+              site="Portfolio"
+              cording="coding / GatsbyJS"
+            />
+          }
+        </Box>
+      </WorksWrapper>
+      </Work>
+      :
+      <Work>
+      <WorksWrapper>
+        <Box>
+          {props.pagenum2 &&
+            <WorksContent
+              href="/page-2"
+              fluid={data.out01.childImageSharp.fluid}
+              alt="実績①"
+              site="RIXIS SPsite"
+              cording="design / Sketch"
+            />
+          }
+          {props.pagenum3 &&
+            <WorksContent
+              href="/page-3"
+              fluid={data.out02.childImageSharp.fluid}
+              alt="実績②"
+              site="袴美人サイト"
+              cording="design / Sketch"
+            />
+          }
+          {props.pagenum4 &&
+            <WorksContent
+              href="/page-4"
+              fluid={data.out03.childImageSharp.fluid}
+              alt="実績③"
+              site="Portfolio"
+              cording="coding / GatsbyJS"
+            />
+          }
+        </Box>
+      </WorksWrapper>
+      </Work>
+      }
+    </ >
   )
 }
 
@@ -80,38 +128,50 @@ const WorksContent = props => (
 const Link2 = styled(Link)`
   color: transparent;
   width: 100%;
-  height: 275px;
+  height: auto;
   display: block;
 `
 
+const Work = styled.div`
+  background-color: ${props => props.change ? '#f7f7f7' : 'white'};
+`
 
 const WorksWrapper = styled.div`
-  margin: 75px 0 267px;
+  margin: 0 auto;
+  width: 84%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  max-width: 1147px;
 `
 
 const Box = styled.div`
-  display:-webkit-box;
-  display:-ms-flexbox;
-  display:flex;
-  -webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-  width: auto;
-  max-width: 888px;
   margin: 0 auto;
+  ${media.handheld768`
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    `}
 `
 
 const Content = styled.div`
-  width: 275px;
+  max-width: 320px;
+  width: 100%;
   text-align: center;
+  margin: 0 auto;
+  ${media.handheld768`
+    width: 31.5%
+  `}
 `
 
 
 
 const WorksImg = styled(Img)`
   overflow: hidden;
-  width: 275px;
-  height: 275px;
+  width: 100%;
+  height: auto;
   position: relative;
   transition: all 0.3s ease 0s;
   &:before{
