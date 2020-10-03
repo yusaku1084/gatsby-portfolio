@@ -63,6 +63,11 @@ z-index: 1;
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
 }
+&.OFF{
+  transform: translateX(${props => props.site}px);
+  transition-timing-function: ease-in-out;
+  transition-duration: 1s;
+}
 `
 
 const Headerright = styled.div`
