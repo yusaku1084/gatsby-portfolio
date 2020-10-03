@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { window } from 'ssr-window';
  
 export const useWindowDimensions = () => {
  
