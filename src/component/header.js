@@ -93,23 +93,35 @@ const Container = styled.div`
 `
 
 const Site = styled.div`
+${media.handheldunder767`
+margin: 0 auto;
+`}
  max-width: 226px;
  width: auto;
  height: auto;
 `
 const Navul = styled.ul`
-	display: flex;
-	list-style: none;
-  margin-top: 18px;
+${media.handheldunder767`
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 60%;
+`};
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  list-style: none;
+  margin: 18px auto 0;
   color: #515151;
 `
 
 const Navli= styled.li`
+${media.handheld768`
   margin-right: 55px;
   &.last {
   margin-right: 0px;
   }
-
+`}
 `
 
 export default Header

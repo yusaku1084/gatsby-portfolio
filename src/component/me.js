@@ -1,10 +1,21 @@
 import PropTypes from "prop-types"
 import React from "react"
 import { graphql,useStaticQuery } from "gatsby"
-import styled from "styled-components"
+import styled,{keyframes} from "styled-components"
 import Img from "gatsby-image"
 import { media } from "../utils/style-utils"
 import { useWindowDimensions } from "../utils/windowsize"
+
+const Clickdesign = keyframes`
+    0% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.3, 1.3);
+    }
+`;
 
 const Headerbox = styled.header`
 width: 100%;
@@ -25,7 +36,7 @@ object-fit: cover;
 `
 
 const Headerinner = styled.div`
-max-width: 1147px;
+max-width: 960px;
 width: 84%;
 max-height: 276px;
 height: auto;
@@ -40,12 +51,12 @@ left: 0;
     display:-webkit-box;
     display:-ms-flexbox;
     display:flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
     `}
 `
-
+const Container = styled.div`
+position:relative;
+width: 100%;
+`
 const Headerleft = styled.div`
 margin: 0 auto;
 max-width: 275px;
@@ -55,32 +66,54 @@ color: white;
 border: 2px solid rgba(255, 255, 255, 0.5);
 box-sizing: border-box;
 text-align: center;
-padding-top: 31px;
-position: relative;
+position: absolute;
+left:0;
+right:0;
 z-index: 1;
-&.ON{
-  transform: translateX(-${props => props.site}px);
-  transition-timing-function: ease-in-out;
-  transition-duration: 1s;
-}
+cursor: pointer;
 &.OFF{
-  transform: translateX(${props => props.site}px);
+  transform: translateX(-${props => props.site}px);
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
 }
 `
 
+const LeftContainer = styled.div`
+position:relative;
+width: 100%;
+box-sizing: border-box;
+padding-top: 31px;
+&.ON{
+  &::before{
+    position: absolute;
+    display: inline-block;
+    top: -1px;
+    left: -1px;
+    width: 100%;
+    height: 276px;
+    content: "";
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: ${Clickdesign} infinite 1.5s;
+  }
+}
+`
+
 const Headerright = styled.div`
-display: none;
+opacity:0;
+padding-top: 22px;
+position: absolute;
 margin: 0 auto;
 max-width: 612px;
-width: 50%;
+width: 45%;
 height: auto;
 color:white;
 font-style: normal;
 font-weight: normal;
-&:hover {
-  transform: translateX(400px);
+left:0;
+right:0;
+&.OFF {
+  opacity:1;
+  transform: translateX(140px);
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
 }
@@ -96,6 +129,11 @@ margin-top:35%;
 border: 1px solid rgba(255, 255, 255, 0.5);
 box-sizing: border-box;
 z-index: -1;
+&.OFF {
+  width: ${props => props.site}px;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1s;
+}
 `
 
 
@@ -156,36 +194,64 @@ const Header = (props) => {
   
     handleClick() {
       this.setState(state => ({
-        isToggleOn: !state.isToggleOn
+        isToggleOn: false
       }));
     }
   
     render() {
       return (
-        <Headerleft 
-        isOpen={props.isOpen} 
-        onClick={this.handleClick}
-        site={widthchange(width)}
-        className={this.state.isToggleOn ? 'ON' : 'OFF'}
-        >
-        <Thumb
-          fluid={data.thumb.childImageSharp.fluid}
-          alt=""
-        />
-        <Name1>Yusaku Sogabe</Name1>
-        <Career>Front Engineer</Career>
-        <Line />
-      </Headerleft>
+          <Container>
+            <Headerleft 
+            onClick={this.handleClick}
+            site={widthchange(width)}
+            className={this.state.isToggleOn ? 'ON' : 'OFF'}
+            >
+              <LeftContainer className={this.state.isToggleOn ? 'ON' : 'OFF'}>
+                <Thumb
+                  fluid={data.thumb.childImageSharp.fluid}
+                  alt=""
+                />
+                <Name1>Yusaku Sogabe</Name1>
+                <Career>Front Engineer</Career>
+                <Line site={widthchange2(width)} className={this.state.isToggleOn ? 'ON' : 'OFF'}/>
+              </LeftContainer>
+            </Headerleft>
+            <Headerright site={widthchange(width)} className={this.state.isToggleOn ? 'ON' : 'OFF'}>
+            <Des>デザインとコーディングの勉強をしています。
+            <br /> 現在はJavaScriptの奥深さに悪戦苦闘中。
+            </Des>
+            <Name2>曽我部 祐作 : ソガベ ユウサク</Name2>
+            <Table
+            main = "性別"
+            sub = "男性"
+            />
+            <Table
+            main = "生年月日"
+            sub = "1998年08月04日(22歳)"
+            />
+            <Table
+            main = "出身地"
+            sub = "兵庫県川西市"
+            />
+            </Headerright>
+          </Container>
       );
     }
   }
 
   const { width, height } = useWindowDimensions();
   const widthchange = (width) => (
-    (width >= 1366) ?　436:
-    (width >= 768) ? 436-((1366-width)*0.42):
+    (width >= 1143) ?　342.5:
+    (width >= 768) ? 342.5-((1143-width)*0.42):
     0
   )
+
+  const widthchange2 = (width) => (
+    (width >= 1143) ?　960:
+    (width >= 768) ? 960-((1143-width)*0.84):
+    0
+  )
+
   const data = useStaticQuery(graphql`
     query {
       top: file(relativePath: {eq: "Rectangle.png"}) {
@@ -216,24 +282,6 @@ const Header = (props) => {
       </Headerback>
       <Headerinner>
         <Toggle />
-        <Headerright>
-        <Des>デザインとコーディングの勉強をしています。
-        <br /> 現在はJavaScriptの奥深さに悪戦苦闘中。
-        </Des>
-        <Name2>曽我部 祐作 : ソガベ ユウサク</Name2>
-        <Table
-        main = "性別"
-        sub = "男性"
-        />
-        <Table
-        main = "生年月日"
-        sub = "1998年08月04日(21歳)"
-        />
-        <Table
-        main = "現住所"
-        sub = "兵庫県川西市"
-        />
-        </Headerright>
       </Headerinner>
     </Headerbox>
   )

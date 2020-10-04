@@ -13,30 +13,37 @@ const CareerList01 = () => (
   <List>
     <Content>
     <ColumnTitle title="EXPERIENCE" />
-      <Block>
-        <Border />      
+      <Block>     
         <TextDetail>
           <TextBold>塾講師 | 2017.04 - 2020.04<br />株式会社ユナイト</TextBold>
           <Text>中高生の理数系の授業を担当。</Text>
         </TextDetail>
       </Block>
       <Block>
-        <Border />
         <TextDetail>
-          <TextBold2>配送業 | 2017.04 - 2019.12<br />株式会社DHA</TextBold2>
+          <TextBold>配送業 | 2017.04 - 2019.12<br />株式会社DHA</TextBold>
           <Text>主に家電の配達設置を行う。</Text>
         </TextDetail>
       </Block>
+      <Block>
       <TextDetail>
-        <TextBold2> テレマーケティング業 | 2020.03 - 2020.08<br />株式会社CRTM</TextBold2>
+        <TextBold> テレマーケティング業 | 2020.03 - 2020.08<br />株式会社CRTM</TextBold>
         <Text>コールセンター業務。</Text>
       </TextDetail>
+      </Block>
     </Content>
     <Content>
     <ColumnTitle title="EDUCATION" />
+      <Block>
+      <TextDetail>
+        <TextBold>普通科 | 2014.04 - 2017.03<br />兵庫県立川西緑台高等学校</TextBold>
+      </TextDetail>
+      </Block>
+      <Block>
       <TextDetail>
         <TextBold>先端社会デザインコース | 2017.04 - 2021.03<br />立命館大学 情報理工学部</TextBold>
       </TextDetail>
+      </Block>
     </Content>
   </List>
 )
@@ -131,16 +138,17 @@ const List = styled.div`
 `
 
 const Content = styled.div`
+  margin-top: 23px;
   max-width: 550px;
   width : 100%;
-  position: relative;
   ${media.handheld768`
     width : 48%;
     `}
 `
 
 const Block = styled.div`
-
+  position: relative;
+  height: auto;
 `
 
 const Blocknode = styled.div`
@@ -158,7 +166,17 @@ const Border = styled.div`
 
 const TextDetail = styled.div`
   padding-left: 25px;
-  margin-bottom: 40px;
+  border-left: 3px #C4C4C4 solid;
+  &::before{
+    content: '';
+    width: 11px;
+    height: 11px;
+    background: #00A1AB;
+    position: absolute;
+    left: -4px;
+    top: 37px;
+    border-radius: 100%;
+  }
 `
 
 const Text = styled.p`
@@ -169,13 +187,9 @@ const Text = styled.p`
 const TextBold = styled(Text)`
   position: relative;
   font-weight: bold;
+  padding: 30px 0 10px;
 `
 
-const TextBold2 = styled(TextBold)`
-&::before {
-  left: -27.2px;
-}
-`
 
 const SkillText = styled(Text)`
   padding-left: 30px;
