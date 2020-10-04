@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 /*import output01 from '../images/SP.png'*/
-import ColumnTitle from "../components/ColumnTitle"
+import ColumnTitle from "../component/ColumnTitle"
 import output02 from '../images/HZ.png'
 /*import output03 from '../images/output03.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

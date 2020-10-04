@@ -24,6 +24,5 @@ const SubTitle2 = styled.h2`
 `
 
 const Exp = styled.p`
-  font-size: 16px;
   margin-top: 14px;
 `

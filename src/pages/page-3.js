@@ -1,6 +1,6 @@
 import React from "react"
 import Works from "../component/Works"
-import Product2 from "../component/Product3"
+import Product2 from "../component/Product2"
 import SubTitle from "../component/SubTitle"
 import Layout from "../component/layout"
 import Footer from "../component/Footer"

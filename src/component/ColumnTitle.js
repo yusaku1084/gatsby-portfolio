@@ -25,7 +25,6 @@ const Title = styled.div`
 `
 
 const Text = styled.p`
-  font-size: 16px;
   line-height: 28px;
   margin: 7px 0;
   color: #00A1AB;

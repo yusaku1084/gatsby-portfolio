@@ -191,7 +191,7 @@ const WorksImg = styled(Img)`
 `
 
 const Text = styled.p`
-  font-size: 16px;
+  font-size: 15px;
   line-height: 28px;
   padding-top: 0;
   margin-bottom: 53px;

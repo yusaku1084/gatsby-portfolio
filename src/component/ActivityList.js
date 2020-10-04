@@ -104,9 +104,12 @@ const List = styled.div`
 `
 
 const Content = styled.div`
-  width: 85%;
-  padding-left: 25px;
-  position: relative;
+  margin-top: 23px;
+  max-width: 550px;
+  width : 100%;
+  ${media.handheld768`
+    width : 48%;
+    `}
 `
 
 
@@ -116,16 +119,23 @@ const Icon = styled(FontAwesomeIcon)`
   top: 13px;
 `
 const Blog = styled.article`
-  display:-webkit-box;
-  display:-ms-flexbox;
-  display: inline-flex;
   margin-bottom: 15px;
   padding-left: 25px;
+  ${media.handheld768`
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    `}
 `
 const Blogtitle = styled.p`
   font-weight: bold;
-  display: inline;
-  margin-left : 30px;
+  ${media.handheld768`
+    display: inline;
+    margin-left:30px;
+    `}
 `
 
 /*const Block = styled.div`
@@ -210,16 +220,19 @@ const SkillComment = styled(SkillText)`
 `*/
 
 const Items = styled.div`
+  ${media.handheld768`
   display:-webkit-box;
   display:-ms-flexbox;
   display:flex;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+`}
 `
 
 const Item = styled.div`
-  width: 50%;
   text-align: center;
+  width: 30%;
 `
 
 const IntImg = styled(Img)`
@@ -231,7 +244,6 @@ margin: 0 auto auto
 `
 
 const TextBold3 = styled.p`
-  font-size: 16px;
   line-height: 28px;
   font-weight: bold;
   margin-top: 20px

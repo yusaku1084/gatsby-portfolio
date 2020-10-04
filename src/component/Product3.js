@@ -11,7 +11,7 @@ const Works = () => (
   <WorksWrapper>
     <Box>
       <WorksContent
-        href="page-3"
+        href="page-4"
         src={output03}
         alt="実績①"
         site="RIXIS SPsite"

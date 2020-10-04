@@ -51,9 +51,7 @@ const CareerList01 = () => (
 const CareerList02 = () => (
   <List>
     <Content>
-      <Title>
-        <ColumnTitle title="SKILL" />
-      </Title>
+      <ColumnTitle title="SKILL" />
       <SkillText2>Coding</SkillText2>
       <Block>
         <Blocknode>
@@ -79,7 +77,7 @@ const CareerList02 = () => (
       <SkillText2>Design</SkillText2>
       <Block>
         <Blocknode>
-          <SkillText>Sketh</SkillText>
+          <SkillText>Sketch</SkillText>
           <Dots><GDot /><GDot /><GDot /><Dot /><Dot /></Dots>
         </Blocknode>
         <SkillComment>普段はこれを使用</SkillComment>     
@@ -92,10 +90,13 @@ const CareerList02 = () => (
         <SkillComment>基本的なことはできる</SkillComment>     
       </Block>
     </Content>
-    <Content>
+    <LastContent>
      <ColumnTitle title="PERSONAL QUALITIES" />
-      
-    </Content>
+     <PersonText>小学校2年から高校3年まで野球部に所属</PersonText>
+     <PersonText>中学校では生徒会長を経験</PersonText>
+     <PersonText>Youtubeで動画投稿をしてみる</PersonText>
+     <PersonText>大学生活では新入生のための学生団体に注力</PersonText>
+    </LastContent>
   </List>
 )
 
@@ -117,14 +118,6 @@ const CareerList = () => (
 
 export default CareerList
 
-const Title = styled.div`
-display:-webkit-box;
-display:-ms-flexbox;
-display:flex;
--webkit-box-pack: justify;
--ms-flex-pack: justify;
-justify-content: space-between;
-`
 
 const List = styled.div`
   ${media.handheld768`
@@ -146,6 +139,15 @@ const Content = styled.div`
     `}
 `
 
+const LastContent = styled.div`
+  margin-top: 23px;
+  max-width: 550px;
+  width : 48%;
+  ${media.handheldunder767`
+    display:none;
+    `}
+`
+
 const Block = styled.div`
   position: relative;
   height: auto;
@@ -156,6 +158,7 @@ const Blocknode = styled.div`
   display:-ms-flexbox;
   display:flex;
   width: auto;
+  margin: 10px 0 10px;
 `
 
 const Border = styled.div`
@@ -180,7 +183,6 @@ const TextDetail = styled.div`
 `
 
 const Text = styled.p`
-  font-size: 16px;
   line-height: 28px;
 `
 
@@ -200,8 +202,13 @@ const SkillText = styled(Text)`
 const SkillText2 = styled(Text)`
   font-weight: bold;
   padding-left: 25px;
-  font-size: 18px;
   width: 20%;
+  min-width: 110px;
+`
+
+const PersonText = styled(Text)`
+  padding-left: 30px;
+  width: 100%;
   min-width: 110px;
 `
 
@@ -229,8 +236,9 @@ const GDot = styled(Dot)`
 const SkillComment = styled(SkillText)`
   width:100%;
   max-width: 270px;
-  font-weight: 500;
+  font-weight: 400;
   padding-left: 30px;
+  display: none;
 `
 
 const Contloler = styled.div`

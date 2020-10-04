@@ -21,18 +21,34 @@ const Headerbox = styled.header`
 width: 100%;
 height: 430px;
 font-family: Roboto;
+${media.handheldunder767`
+  &.OFF{
+  height: 800px;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1s;
+`}
+`
+
+const Inner = styled.div`
+width: 100%;
+height: 430px;
 position: relative;
 `
 
 const Headerback = styled.figure`
-max-height: 100%;
 height: 430px;
+${media.handheldunder767`
+  &.OFF{
+  height: 800px;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1s;
+`}
+}
 `
 
 const Top = styled(Img)`
-width: 100%;
-height: auto;
-object-fit: cover;
+object-fit: contain;
+z-index: -3;
 `
 
 const Headerinner = styled.div`
@@ -71,10 +87,12 @@ left:0;
 right:0;
 z-index: 1;
 cursor: pointer;
-&.OFF{
+${media.handheld768`
+  &.OFF{
   transform: translateX(-${props => props.site}px);
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
+  `}
 }
 `
 
@@ -98,7 +116,7 @@ padding-top: 31px;
 }
 `
 
-const Headerright = styled.div`
+const Headerright1 = styled.div`
 opacity:0;
 padding-top: 22px;
 position: absolute;
@@ -111,11 +129,36 @@ font-style: normal;
 font-weight: normal;
 left:0;
 right:0;
+${media.handheld768`
 &.OFF {
   opacity:1;
   transform: translateX(140px);
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
+}`
+}
+`
+
+const Headerright2 = styled.div`
+max-width: 275px;
+width: 100%;
+opacity: 0;
+position: absolute;
+margin: 0 auto;
+height: auto;
+color:white;
+font-style: normal;
+font-weight: normal;
+left:0;
+right:0;
+z-index: -2;
+${media.handheldunder767`
+&.OFF {
+  opacity:1;
+  transform: translateY(300px);
+  transition-timing-function: ease-in-out;
+  transition-duration: 1s;
+}`
 }
 `
 
@@ -129,10 +172,12 @@ margin-top:35%;
 border: 1px solid rgba(255, 255, 255, 0.5);
 box-sizing: border-box;
 z-index: -1;
+${media.handheld768`
 &.OFF {
   width: ${props => props.site}px;
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
+}`
 }
 `
 
@@ -163,7 +208,7 @@ margin-bottom: 29px;
 `
 
 const Name2 = styled.p`
-font-size: 16px;
+font-size: 15px;
 font-weight: 500;
 margin-bottom: 10px;
 height: 25px;
@@ -181,7 +226,29 @@ font-size: 14px;
 line-height: 28px;
 width: 147px;
 `
+const PersonText = styled.p`
+font-size: 12px;
+padding: 20px 0 20px;
+`
+const TextDetail = styled.div`
+  padding-left: 10px;
+  border-left: 1px #C4C4C4 solid;
+  &::before{
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: #C4C4C4;
+    position: absolute;
+    left: -2px;
+    top: 24px;
+    border-radius: 100%;
+  }
+`
 
+const Block = styled.div`
+  position: relative;
+  height: auto;
+`
 
 const Header = (props) => {
 
@@ -200,41 +267,76 @@ const Header = (props) => {
   
     render() {
       return (
-          <Container>
-            <Headerleft 
-            onClick={this.handleClick}
-            site={widthchange(width)}
-            className={this.state.isToggleOn ? 'ON' : 'OFF'}
-            >
-              <LeftContainer className={this.state.isToggleOn ? 'ON' : 'OFF'}>
-                <Thumb
-                  fluid={data.thumb.childImageSharp.fluid}
-                  alt=""
+        <Headerbox className={this.state.isToggleOn ? 'ON' : 'OFF'}>
+          <Inner>
+            <Headerback className={this.state.isToggleOn ? 'ON' : 'OFF'}>
+              <Top
+                fluid={data.top.childImageSharp.fluid}
+                alt=""
+                style={{ height: "100%" }}
+              />
+            </Headerback>
+            <Headerinner>
+              <Container>
+                <Headerleft 
+                onClick={this.handleClick}
+                site={widthchange(width)}
+                className={this.state.isToggleOn ? 'ON' : 'OFF'}
+                >
+                  <LeftContainer className={this.state.isToggleOn ? 'ON' : 'OFF'}>
+                    <Thumb
+                      fluid={data.thumb.childImageSharp.fluid}
+                      alt=""
+                    />
+                    <Name1>Yusaku Sogabe</Name1>
+                    <Career>Front Engineer</Career>
+                    <Line site={widthchange2(width)} className={this.state.isToggleOn ? 'ON' : 'OFF'}/>
+                  </LeftContainer>
+                </Headerleft>
+                <Headerright1 className={this.state.isToggleOn ? 'ON' : 'OFF'}>
+                <Des>好きなことを仕事にするため勉強中。
+                <br /> 現在はJavaScriptの奥深さに悪戦苦闘中。
+                </Des>
+                <Name2>曽我部 祐作 : ソガベ ユウサク</Name2>
+                <Table
+                main = "性別"
+                sub = "男性"
                 />
-                <Name1>Yusaku Sogabe</Name1>
-                <Career>Front Engineer</Career>
-                <Line site={widthchange2(width)} className={this.state.isToggleOn ? 'ON' : 'OFF'}/>
-              </LeftContainer>
-            </Headerleft>
-            <Headerright site={widthchange(width)} className={this.state.isToggleOn ? 'ON' : 'OFF'}>
-            <Des>デザインとコーディングの勉強をしています。
-            <br /> 現在はJavaScriptの奥深さに悪戦苦闘中。
-            </Des>
-            <Name2>曽我部 祐作 : ソガベ ユウサク</Name2>
-            <Table
-            main = "性別"
-            sub = "男性"
-            />
-            <Table
-            main = "生年月日"
-            sub = "1998年08月04日(22歳)"
-            />
-            <Table
-            main = "出身地"
-            sub = "兵庫県川西市"
-            />
-            </Headerright>
-          </Container>
+                <Table
+                main = "生年月日"
+                sub = "1998年08月04日(22歳)"
+                />
+                <Table
+                main = "出身地"
+                sub = "兵庫県川西市"
+                />
+                </Headerright1>
+                <Headerright2 className={this.state.isToggleOn ? 'ON' : 'OFF'}>
+                <Block>
+                  <TextDetail>
+                    <PersonText>小学校2年から高校3年まで野球部に所属</PersonText>
+                  </TextDetail>
+                </Block>
+                <Block>
+                  <TextDetail>
+                    <PersonText>中学校では生徒会長を経験</PersonText>
+                  </TextDetail>
+                </Block>
+                <Block>
+                  <TextDetail>
+                    <PersonText>Youtubeで動画投稿をしてみる</PersonText>
+                  </TextDetail>
+                </Block>
+                <Block>
+                  <TextDetail>
+                    <PersonText>大学生活では新入生のための学生団体に注力</PersonText>
+                  </TextDetail>
+                </Block>
+                </Headerright2>
+              </Container>
+              </Headerinner>
+            </Inner>
+          </Headerbox>
       );
     }
   }
@@ -254,7 +356,7 @@ const Header = (props) => {
 
   const data = useStaticQuery(graphql`
     query {
-      top: file(relativePath: {eq: "Rectangle.png"}) {
+      top: file(relativePath: {eq: "Rectangle.jpg"}) {
         childImageSharp {
           fluid(maxWidth: 1600, quality: 100) {
             ...GatsbyImageSharpFluid_withWebp
@@ -272,18 +374,7 @@ const Header = (props) => {
   `)
 
   return(
-    <Headerbox>
-      <Headerback>
-          <Top
-            fluid={data.top.childImageSharp.fluid}
-            alt=""
-            style={{ height: "100%" }}
-          />
-      </Headerback>
-      <Headerinner>
         <Toggle />
-      </Headerinner>
-    </Headerbox>
   )
 }
 
