@@ -1,22 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
-/*import output01 from '../images/SP.png'*/
 import ColumnTitle from "../component/ColumnTitle"
-/*import output02 from '../images/HZ.png'*/
-import output03 from '../images/PF.png'
-/*import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'*/
+import output02 from '../images/HZ.png'
+import { graphql,useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
+import {media} from "../utils/style-utils"
 
-const Works = () => (
+const Works = () => {
+
+  const data = useStaticQuery(graphql`
+    query {
+      apple: file(relativePath: {eq: "Apple2.jpg"}) {
+        childImageSharp {
+          fluid(maxWidth: 1600, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
+
+  return(
   <WorksWrapper>
     <Box>
-      <WorksContent
-        href="page-4"
-        src={output03}
-        alt="実績①"
-        site="RIXIS SPsite"
-        cording="design / Sketch"
-      />
+      <Topin>
+        <Top
+        fluid={data.apple.childImageSharp.fluid}
+        alt=""
+        />
+      </Topin>
       <Content2>
       <ColumnTitle title="担当" />
       <Tx>就活でのポートフォリオサイトのために作成。<br />同時にReactJSなども学びたかったため、GatsbyJSを用いて作成した。今まで扱ったことのない言語だったので、初めてのコンポーネントの理解にとても時間がかかった。フロントエンドエンジニアを目指す僕にとって、エンジニアの難しさと楽しさの両方を改めて知る機会になった。このサイトをベースにBlogなども書いていこうと思う。</Tx>
@@ -25,23 +37,27 @@ const Works = () => (
       </Content2>
     </Box>
   </WorksWrapper>
-)
+  )
+}
 
 export default Works
 
-const WorksContent = props => (
-  <Content>
-      <WorksImg><img src={props.src} alt={props.alt}  /></WorksImg>    
-  </Content>
-)
 
 const Content2 = styled.div`
-  width: 80%;
-  padding-left: 25px;
-  position: relative;
+  max-width: 550px;
+  width:100%;
+  height: auto;
+  box-sizing:border-box;
+  ${media.handheld768`
+  width:45%;
+    `}
 `
 const WorksWrapper = styled.div`
-  margin: 75px 0 112px;
+  background: #fff;
+  padding: 60px 0 80px;
+  ${media.handheld768`
+    padding: 100px 0 100px;
+    `}
 `
 const Tx = styled.p`
 font-weight: 500;
@@ -49,25 +65,36 @@ font-size: 14px;
 line-height: 21px;
 color: #515151;
 margin-top: 26px;
-margin-left: 25px;
 margin-bottom: 100px;
+
 `
 
 const Box = styled.div`
+  max-width:1147px;
+  width: 84%;
+  margin: 0 auto;
+  ${media.handheld768`
   display:-webkit-box;
   display:-ms-flexbox;
   display:flex;
   -webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
-  width: auto;
-  max-width: 900px;
-  margin: 0 auto;
+    `}
 `
 
-const Content = styled.div`
-  text-align: center;
-  height: auto;
+const Topin = styled.figure`
+max-width: 550px;
+height: auto;
+width: 100%;
+${media.handheld768`
+width: 50%;
+    `}
+`
+
+const Top = styled(Img)`
+width: 100%;
+height: auto;
 `
 
 /*const Link = styled.a`
@@ -75,10 +102,6 @@ const Content = styled.div`
   width: 100%;
   display: block;
 `*/
-
-const WorksImg = styled.div`
-  width: 100%;
-`
 
 /*const Text = styled.p`
   font-size: 16px;
@@ -92,3 +115,4 @@ const WorksImg = styled.div`
   margin-bottom: 10px;
   padding-top: 24px;
 `*/
+

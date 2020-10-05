@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import CareerList from './CareerList'
+import { media } from "../utils/style-utils"
 
 const Career = () => (
   <Wrapper>
@@ -14,7 +15,10 @@ export default Career
 
 const Wrapper = styled.div`
   background: #F7F7F7;
-  padding: 115px 0 100px;
+  padding: 80px 0 80px;
+  ${media.handheld768`
+    padding: 100px 0 100px;
+    `}
 `
 
 const Block = styled.div`

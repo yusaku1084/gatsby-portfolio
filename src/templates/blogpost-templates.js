@@ -90,8 +90,8 @@ const BlogSpot = ({data,location,pageContext}) =>(
           <Container>
             <Bar>{data.contentfulBlogPost.title}</Bar>
             <Info>
-              <time dateTime={data.contentfulBlogPost.publishDate}><Icon icon={faClock} />{data.contentfulBlogPost.publishDateJP}</time>
-              <div className="cat">
+              <Time dateTime={data.contentfulBlogPost.publishDate}><Icon icon={faClock} />{data.contentfulBlogPost.publishDateJP}</Time>
+              <Cat className="cat">
                 <Icon icon={faFolderOpen} />
                 <Ul>
                   {data.contentfulBlogPost.category.map(cat =>
@@ -100,7 +100,7 @@ const BlogSpot = ({data,location,pageContext}) =>(
                     </Infoli>
                   )}
                 </Ul>
-              </div>
+              </Cat>
             </Info>
             <Line />
             <Postbody>
@@ -112,14 +112,14 @@ const BlogSpot = ({data,location,pageContext}) =>(
                 <li className="prev">
                   <Link to={`/blog/post/${pageContext.next.slug}/`} rel="prev">
                     <Icon icon={faChevronLeft} />
-                    <span>{pageContext.next.title}</span>
+                    <span>前の記事</span>
                   </Link>
                 </li>
               )}
               {pageContext.previous && (
                 <Next>
                   <Link to={`/blog/post/${pageContext.previous.slug}/`} rel="next">
-                    <span>{pageContext.previous.title}</span>
+                    <span>次の記事</span>
                     <Icon className="right" icon={faChevronRight} />
                   </Link>
                 </Next>
@@ -139,19 +139,25 @@ margin-top: 120px;
 margin-bottom: 100px;
 `
 const Container = styled.div`
-max-width: 785px;
+max-width: 1147px;
+width: 84%;
 margin: 0 auto;
 `
 const Bar = styled.h1`
 font-size: 28px;
-margin-bottom: 21px;
+margin-bottom: 16px;
 `
 const Info = styled.aside`
 margin-bottom: 21px;
 font-size: 16px;
-display: flex;
-justify-content: space-between;
 color: #515151;
+`
+
+const Time = styled.time`
+`
+
+const Cat = styled.div`
+margin-top : 10px;
 `
 
 const Line = styled.div`

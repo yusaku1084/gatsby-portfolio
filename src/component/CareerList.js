@@ -12,7 +12,7 @@ config.autoAddCss = false
 const CareerList01 = () => (
   <List>
     <Content>
-    <ColumnTitle title="EXPERIENCE" />
+    <ColumnTitle title="CAREER" />
       <Block>     
         <TextDetail>
           <TextBold>塾講師 | 2017.04 - 2020.04<br />株式会社ユナイト</TextBold>
@@ -91,11 +91,31 @@ const CareerList02 = () => (
       </Block>
     </Content>
     <LastContent>
-     <ColumnTitle title="PERSONAL QUALITIES" />
-     <PersonText>小学校2年から高校3年まで野球部に所属</PersonText>
-     <PersonText>中学校では生徒会長を経験</PersonText>
-     <PersonText>Youtubeで動画投稿をしてみる</PersonText>
-     <PersonText>大学生活では新入生のための学生団体に注力</PersonText>
+     <ColumnTitle title="EXPERIENCE" />
+                <Block>
+                  <TextDetail2>
+                    <PersonText>小学校2年から高校3年まで野球部に所属</PersonText>
+                    <PersonTextdetail>仲間と一丸となり苦楽を共にすることの素晴らしさを知る</PersonTextdetail>
+                  </TextDetail2>
+                </Block>
+                <Block>
+                  <TextDetail2>
+                    <PersonText>中学校では生徒会長を経験</PersonText>
+                    <PersonTextdetail>大人しい性格だったが、どんどん人前に立てるような人になりたいと思い立候補</PersonTextdetail>
+                  </TextDetail2>
+                </Block>
+                <Block>
+                  <TextDetail2>
+                    <PersonText>Youtubeで動画投稿をしてみる</PersonText>
+                    <PersonTextdetail>ゲーム実況の動画をあげ約7万回再生を得る。GoogleAdsenseにより収益も得た</PersonTextdetail>
+                  </TextDetail2>
+                </Block>
+                <Block>
+                  <TextDetail2>
+                    <PersonText>大学生活では新入生のための学生団体に注力</PersonText>
+                    <PersonTextdetail>新入生の不安を解決できるような企画の立案し実行した。</PersonTextdetail>
+                  </TextDetail2>
+                </Block>
     </LastContent>
   </List>
 )
@@ -182,6 +202,21 @@ const TextDetail = styled.div`
   }
 `
 
+const TextDetail2 = styled.div`
+  margin-bottom:12px;
+  padding-left: 24px;
+  &::before{
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: #C4C4C4;
+    position: absolute;
+    left: 0px;
+    top: 11px;
+    border-radius: 100%;
+  }
+`
+
 const Text = styled.p`
   line-height: 28px;
 `
@@ -206,10 +241,16 @@ const SkillText2 = styled(Text)`
   min-width: 110px;
 `
 
+const PersonTextdetail = styled.p`
+  line-height: 26px;
+  font-size: 13px;
+`
+
 const PersonText = styled(Text)`
-  padding-left: 30px;
   width: 100%;
   min-width: 110px;
+  line-height: 30px;
+  font-weight: bold;
 `
 
 const Dots = styled.div`

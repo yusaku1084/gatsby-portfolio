@@ -23,7 +23,7 @@ height: 430px;
 font-family: Roboto;
 ${media.handheldunder767`
   &.OFF{
-  height: 800px;
+  height: 670px;
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
 `}
@@ -39,7 +39,7 @@ const Headerback = styled.figure`
 height: 430px;
 ${media.handheldunder767`
   &.OFF{
-  height: 800px;
+  height: 670px;
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
 `}

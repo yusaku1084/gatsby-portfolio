@@ -88,8 +88,9 @@ margin-top: 120px;
 margin-bottom: 100px;
 `
 const Container = styled.div`
-max-width: 785px;
+max-width: 1147px;
 margin: 0 auto;
+width: 84%;
 `
 
 const Bar = styled.h1`

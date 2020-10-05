@@ -12,6 +12,11 @@ export const media = {
       ${css(...args)};
     }
   `,
+  handheld1024: (...args) => css`
+    @media(min-width: 1024px){
+      ${css(...args)};
+    }
+  `,
   handheldunder767: (...args) => css`
     @media(max-width: 767px){
       ${css(...args)};

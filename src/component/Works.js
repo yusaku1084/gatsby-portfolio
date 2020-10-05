@@ -139,9 +139,13 @@ const Work = styled.div`
 const WorksWrapper = styled.div`
   margin: 0 auto;
   width: 84%;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
   max-width: 1147px;
+  ${media.handheld768`
+    padding-top: 100px;
+    padding-bottom: 100px;
+    `}
+  
 `
 
 const Box = styled.div`
@@ -160,8 +164,9 @@ const Content = styled.div`
   max-width: 320px;
   width: 100%;
   text-align: center;
-  margin: 0 auto;
+  margin: 60px auto 0px;
   ${media.handheld768`
+    margin: 0 auto;
     width: 31.5%
   `}
 `
