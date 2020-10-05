@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import output01 from '../images/SP.png'
 import ColumnTitle from "../component/ColumnTitle"
 import {media} from "../utils/style-utils"
 import { graphql,useStaticQuery } from "gatsby"

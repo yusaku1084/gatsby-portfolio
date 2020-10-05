@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import ColumnTitle from "../component/ColumnTitle"
-import output02 from '../images/HZ.png'
 import { graphql,useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import {media} from "../utils/style-utils"
