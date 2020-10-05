@@ -281,7 +281,7 @@ const IntImg = styled(Img)`
   `}
 `
 
-const TextBold3 = styled.a`
+const TextBold3 = styled.p`
   line-height: 28px;
   font-weight: bold;
 `
