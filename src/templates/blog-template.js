@@ -6,6 +6,7 @@ import Img from "gatsby-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight,faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
+import { media } from "../utils/style-utils"
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
@@ -18,6 +19,13 @@ export const query = graphql`
           title
           slug
           id
+          publishDate
+          publishDateJP: publishDate(formatString: "YYYY年MM月DD日")
+          category {
+            category
+            categorySlug
+            id
+          }
           eyecatch{
             fluid(maxWidth: 500) {
               ...GatsbyContentfulFluid_withWebp
@@ -29,7 +37,6 @@ export const query = graphql`
     }
   }
 `
-
 const Blog = ({location,data,pageContext}) =>(
   <Layout>
     <SEO 
@@ -45,7 +52,7 @@ const Blog = ({location,data,pageContext}) =>(
             <PostArticle className="post" key={node.id}>
               <Link to={`/blog/post/${node.slug}/`}>
                 <Postfigure>
-                  <Img 
+                  <PostImg 
                   fluid={node.eyecatch.fluid} 
                   alt={node.eyecatch.description} 
                   style={{ height: "100%"}} 
@@ -53,6 +60,14 @@ const Blog = ({location,data,pageContext}) =>(
                   durationFadeIn={100}
                   />
                 </Postfigure>
+                <Ul>
+                <Time dateTime={node.publishDate}>{node.publishDateJP}</Time>
+                {node.category.map(cat => 
+                  <Infoli className={cat.categorySlug} key={cat.id}>
+                    <Link to={`/cat/${cat.categorySlug}`}>{cat.category}</Link>
+                  </Infoli>
+                )}
+                </Ul>
                 <Name>{node.title}</Name>
               </Link>
             </PostArticle>
@@ -82,7 +97,6 @@ const Blog = ({location,data,pageContext}) =>(
         </Pagenation>
       </Container>
     </Content>
-
   </Layout>
 
 )
@@ -90,8 +104,12 @@ const Blog = ({location,data,pageContext}) =>(
 export default Blog
 
 const Content = styled.section`
-margin-top: 120px;
-margin-bottom: 100px;
+margin-top: 60px;
+margin-bottom: 60px;
+${media.handheld768`
+  margin-top: 100px;
+  margin-bottom: 100px;
+    `}
 `
 const Container = styled.div`
 max-width: 1147px;
@@ -100,31 +118,69 @@ width: 84%;
 `
 
 const Bar = styled.h1`
-font-size: 28px;
+color: #515151;
+font-size: 22px;
 margin-bottom: 21px;
+${media.handheld768`
+font-size: 28px;
+    `}
 `
 
 const Post = styled.div`
+  padding-top: 20px;
+  ${media.handheld768`
+  padding-top: 50px;
   display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding-top: 50px;
+    `}
 `
 
 const PostArticle = styled.div`
-width: 48%;
+width: 100%;
 margin-bottom: 20px;
+${media.handheld768`
+  width: 30%;
+  `}
+`
+const Time = styled.time`
+font-size: 10px;
+color: #515151;
+line-height: 25px;
+`
+
+const Ul = styled.ul`
+list-style: none;
+display: flex;
+`
+
+const Infoli= styled.li`
+font-size: 12px;
+color: #515151;
+border: solid 1px #515151;  
+margin: 0 5px;
+padding: 4px 8px;
+border-radius: 2px;
 `
 
 const Postfigure = styled.figure`
 max-height: 100%;
 height: 150px;
-}
+width: 100%;
+margin-bottom: 5px;
+${media.handheld768`
+  max-height: 100%;
+  height: 150px;
+  width: 100%;
+  `}
 `
+const PostImg = styled(Img)`
+border-radius: 5%;
+`
+
 const Name = styled.h3`
 	margin-top: 10px;
 	font-size: 14px;
-}
 `
 
 const Icon = styled(FontAwesomeIcon)`

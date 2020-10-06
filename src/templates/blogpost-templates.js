@@ -11,6 +11,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 import styled from "styled-components"
+import { media } from "../utils/style-utils"
 
 export const query = graphql`
   query($id: String!) {
@@ -136,18 +137,27 @@ const BlogSpot = ({data,location,pageContext}) =>(
 
 export default BlogSpot
 
-const Content = styled.article`
-margin-top: 120px;
-margin-bottom: 100px;
+const Content = styled.section`
+margin-top: 60px;
+margin-bottom: 60px;
+${media.handheld768`
+  margin-top: 100px;
+  margin-bottom: 100px;
+    `}
 `
+
 const Container = styled.div`
 max-width: 1147px;
 width: 84%;
 margin: 0 auto;
 `
 const Bar = styled.h1`
+color: #515151;
+font-size: 22px;
+margin-bottom: 21px;
+${media.handheld768`
 font-size: 28px;
-margin-bottom: 16px;
+    `}
 `
 const Info = styled.aside`
 margin-bottom: 21px;
