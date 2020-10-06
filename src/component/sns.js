@@ -7,13 +7,13 @@ import { faTwitter,faFacebookSquare,faInstagram } from "@fortawesome/free-brands
 const snsArea = () => (
   <Wrapper>
     <LinkWrapper>
-      <SnsLink to="https://facebook.com">
+      <SnsLink to="https://facebook.com" aria-label="facebook">
         <FontAwesomeIcon icon={faFacebookSquare} />
       </SnsLink>
-      <SnsLink to="https://twitter.com">
+      <SnsLink to="https://twitter.com" aria-label="twitter">
         <FontAwesomeIcon icon={faTwitter} />
       </SnsLink>
-      <SnsLink to="https://instagram.com">
+      <SnsLink to="https://instagram.com" aria-label="instagram">
         <FontAwesomeIcon icon={faInstagram} />
       </SnsLink>
     </LinkWrapper>

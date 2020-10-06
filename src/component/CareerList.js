@@ -1,9 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import ColumnTitle from './ColumnTitle.js'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
-import DoughnutExample from './doughnut';
 import { media } from "../utils/style-utils"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
@@ -120,14 +117,6 @@ const CareerList02 = () => (
   </List>
 )
 
-const Doughnutdraw = (props) => (
-    <Contloler2>
-      <DoughnutExample />
-      <Center >{props.title}</Center>
-    </Contloler2>
-
-)
-
 
 const CareerList = () => (
   <>
@@ -181,12 +170,6 @@ const Blocknode = styled.div`
   margin: 10px 0 10px;
 `
 
-const Border = styled.div`
-  margin-top: 19px;
-  margin-bottom: -8px;
-  border-left: 1px solid #C4C4C4;  
-`
-
 const TextDetail = styled.div`
   padding-left: 25px;
   border-left: 3px #C4C4C4 solid;
@@ -194,7 +177,7 @@ const TextDetail = styled.div`
     content: '';
     width: 11px;
     height: 11px;
-    background: #00A1AB;
+    background: #007e86;
     position: absolute;
     left: -4px;
     top: 37px;
@@ -271,7 +254,7 @@ const Dot = styled.div`
 `
 
 const GDot = styled(Dot)`
-  background: #00A1AB;
+  background: #007e86;
 `
 
 const SkillComment = styled(SkillText)`
@@ -280,34 +263,4 @@ const SkillComment = styled(SkillText)`
   font-weight: 400;
   padding-left: 30px;
   display: none;
-`
-
-const Contloler = styled.div`
-  width:100%;
-  max-width:520px;
-  position: absolute;
-  left: 50px;
-  display:-webkit-box;
-  display:-ms-flexbox;
-  display:flex;
-  -webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-  justify-content: space-between;
-`
-
-const Contloler2 = styled.div`
-  position: relative;
-`
-
-const Center = styled.p`
-position: absolute;
-top: 0;
-left: 0;
-margin: auto;
-right: 0;
-margin: auto;
-text-align: center;
-top: 50%;
--webkit-transform: translateY(-50%);
-transform: translateY(-50%);
 `
