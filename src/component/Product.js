@@ -26,6 +26,8 @@ const Works = () => {
       <WorksImg
         fluid={data.iphone.childImageSharp.fluid}
         alt=""
+        loading="eager"
+        durationFadeIn={100}
         />
       </Content>
       <Content2>

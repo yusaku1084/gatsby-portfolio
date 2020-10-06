@@ -72,21 +72,33 @@ const CareerList = () => {
         <ColumnTitle title="INTEREST" />
           <Items>
             <Item>
-              <IntImg fluid = {data.edu01.childImageSharp.fluid} />
+              <IntImg 
+              fluid = {data.edu01.childImageSharp.fluid} 
+              loading="eager"
+              durationFadeIn={100}
+              />
               <IntContainer>
                 <TextBold3>Manga</TextBold3>
                 <Intdetail>おすすめはキングダムです。</Intdetail>
               </IntContainer>
             </Item>
             <Item>
-              <IntImg fluid = {data.edu02.childImageSharp.fluid} />
+              <IntImg 
+              fluid = {data.edu02.childImageSharp.fluid} 
+              loading="eager"
+              durationFadeIn={100}
+              />
               <IntContainer>
                 <TextBold3>Fashion</TextBold3>
                 <Intdetail>最近はプチプラで楽しんでます。</Intdetail>
               </IntContainer>
             </Item>
             <Item>
-              <IntImg fluid = {data.edu03.childImageSharp.fluid} />
+              <IntImg 
+              fluid = {data.edu03.childImageSharp.fluid} 
+              loading="eager"
+              durationFadeIn={100}
+              />
               <IntContainer>
                 <TextBold3>Game</TextBold3>
                 <Intdetail>ポケモンを本気でしたいです。</Intdetail>

@@ -115,7 +115,11 @@ export default Works
 const WorksContent = props => (
   <Content>
     <Link2 to={props.href}>
-      <WorksImg fluid = {props.fluid} />   
+      <WorksImg 
+      fluid = {props.fluid}
+      loading="eager"
+      durationFadeIn={100}
+      />   
       <TextBold>{props.site}</TextBold>
       <Text>{props.cording}</Text>
       <Icon icon={faAngleLeft} size="2x" />

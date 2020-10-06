@@ -62,6 +62,8 @@ const options = {
             ? node.data.target.fields.description["ja-JP"]
             : node.data.target.fields.title["ja-JP"]
         }
+        loading="eager"
+        durationFadeIn={100}
       />
     ),
   },

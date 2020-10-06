@@ -26,6 +26,8 @@ const Works = () => {
         <Top
         fluid={data.apple.childImageSharp.fluid}
         alt=""
+        loading="eager"
+        durationFadeIn={100}
         />
       </Topin>
       <Content2>

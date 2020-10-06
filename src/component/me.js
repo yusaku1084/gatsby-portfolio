@@ -274,6 +274,8 @@ const Header = (props) => {
                 fluid={data.top.childImageSharp.fluid}
                 alt=""
                 style={{ height: "100%" }}
+                loading="eager"
+                durationFadeIn={100}
               />
             </Headerback>
             <Headerinner>
@@ -287,6 +289,8 @@ const Header = (props) => {
                     <Thumb
                       fluid={data.thumb.childImageSharp.fluid}
                       alt=""
+                      loading="eager"
+                      durationFadeIn={100}
                     />
                     <Name1>Yusaku Sogabe</Name1>
                     <Career>Front Engineer</Career>

@@ -45,7 +45,13 @@ const Blog = ({location,data,pageContext}) =>(
             <PostArticle className="post" key={node.id}>
               <Link to={`/blog/post/${node.slug}/`}>
                 <Postfigure>
-                  <Img fluid={node.eyecatch.fluid} alt={node.eyecatch.description} style={{ height: "100%"}} />
+                  <Img 
+                  fluid={node.eyecatch.fluid} 
+                  alt={node.eyecatch.description} 
+                  style={{ height: "100%"}} 
+                  loading="eager"
+                  durationFadeIn={100}
+                  />
                 </Postfigure>
                 <Name>{node.title}</Name>
               </Link>
