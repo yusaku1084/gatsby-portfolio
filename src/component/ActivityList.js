@@ -84,21 +84,14 @@ const CareerList = () => {
             </Item>
             <Item>
               <IntImg 
-              fluid = {data.edu02.childImageSharp.fluid} 
-              loading="eager"
-              durationFadeIn={100}
-              />
+              fluid = {data.edu02.childImageSharp.fluid} />
               <IntContainer>
                 <TextBold3>Fashion</TextBold3>
                 <Intdetail>最近はプチプラで楽しんでます。</Intdetail>
               </IntContainer>
             </Item>
             <Item>
-              <IntImg 
-              fluid = {data.edu03.childImageSharp.fluid} 
-              loading="eager"
-              durationFadeIn={100}
-              />
+              <IntImg fluid = {data.edu03.childImageSharp.fluid} />
               <IntContainer>
                 <TextBold3>Game</TextBold3>
                 <Intdetail>ポケモンを本気でしたいです。</Intdetail>
