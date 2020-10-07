@@ -5,6 +5,7 @@ import { graphql,useStaticQuery,Link } from "gatsby"
 import Img from "gatsby-image"
 import { media } from "../utils/style-utils"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPen,faHeart } from '@fortawesome/free-solid-svg-icons'
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 config.autoAddCss = false
@@ -54,7 +55,7 @@ const CareerList = () => {
   return (
     <List>
       <Content>
-        <ColumnTitle title="BLOG" />
+        <ColumnTitle title="BLOG" icon={faPen}/>
         <div className="container">
         <Posts>
           {data.allContentfulBlogPost.edges.map(({node}) => (
@@ -69,7 +70,7 @@ const CareerList = () => {
       </div>
       </Content>
       <Content>
-        <ColumnTitle title="INTEREST" />
+        <ColumnTitle title="INTEREST" icon={faHeart}/>
           <Items>
             <Item>
               <IntImg fluid = {data.edu01.childImageSharp.fluid} />

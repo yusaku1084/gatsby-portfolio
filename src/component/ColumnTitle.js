@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
-import { media } from "../utils/style-utils"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 config.autoAddCss = false
@@ -10,7 +8,7 @@ config.autoAddCss = false
 const ColumnTitle = props => (
   <Title>
     <Text>
-      <Icon icon={faAddressBook} color="#C4C4C4" />
+      <Icon icon={props.icon} color="#C4C4C4" />
       {props.title}
     </Text>
   </Title>

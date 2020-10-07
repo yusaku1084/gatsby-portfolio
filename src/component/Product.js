@@ -4,6 +4,7 @@ import ColumnTitle from "../component/ColumnTitle"
 import {media} from "../utils/style-utils"
 import { graphql,useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
+import { faBorderAll, faCalendarDay, faDesktop } from '@fortawesome/free-solid-svg-icons'
 
 const Works = () => {
 
@@ -31,9 +32,11 @@ const Works = () => {
         />
       </Content>
       <Content2>
-      <ColumnTitle title="担当" />
-      <Tx>BootCampの課題で作成しました。<br />課題は提示されたサイトのスマートフォン版のデザインを作成するというもので、<br />難易度は比較的易しめでしたが、デザインソフト使用の良い練習になったと思います。</Tx>
-      <ColumnTitle title="制作期間" />
+      <ColumnTitle title="RIXIS" icon={faDesktop} />
+      <Tx>BootCampの課題で作成しました。<br />課題は提示されたサイトのスマートフォン版のデザインを作成するというもので、難易度は比較的易しめでしたが、デザインソフト「Sketch」の良い練習になったと思います。</Tx>
+      <ColumnTitle  title="担当"  icon={faBorderAll}/>
+      <Tx>デザイン</Tx>
+      <ColumnTitle title="制作期間" icon={faCalendarDay}/>
       <Tx>2020/2/16 (5時間)</Tx>
       </Content2>
     </Box>

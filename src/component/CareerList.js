@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ColumnTitle from './ColumnTitle.js'
 import { media } from "../utils/style-utils"
+import { faAddressBook,faLaptopCode,faUserTie,faShoePrints } from '@fortawesome/free-solid-svg-icons'
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 config.autoAddCss = false
@@ -9,7 +10,7 @@ config.autoAddCss = false
 const CareerList01 = () => (
   <List>
     <Content>
-    <ColumnTitle title="CAREER" />
+    <ColumnTitle title="CAREER"  icon={faUserTie} />
       <Block>     
         <TextDetail>
           <TextBold>塾講師 | 2017.04 - 2020.04<br />株式会社ユナイト</TextBold>
@@ -30,7 +31,7 @@ const CareerList01 = () => (
       </Block>
     </Content>
     <Content>
-    <ColumnTitle title="EDUCATION" />
+    <ColumnTitle title="EDUCATION"  icon={faAddressBook}/>
       <Block>
       <TextDetail>
         <TextBold>普通科 | 2014.04 - 2017.03<br />兵庫県立川西緑台高等学校</TextBold>
@@ -48,7 +49,7 @@ const CareerList01 = () => (
 const CareerList02 = () => (
   <List>
     <Content>
-      <ColumnTitle title="SKILL" />
+      <ColumnTitle title="SKILL" icon={faLaptopCode} />
       <SkillText2>Coding</SkillText2>
       <Block>
         <Blocknode>
@@ -88,7 +89,7 @@ const CareerList02 = () => (
       </Block>
     </Content>
     <LastContent>
-     <ColumnTitle title="EXPERIENCE" />
+     <ColumnTitle title="EXPERIENCE"  icon={faShoePrints}/>
                 <Block>
                   <TextDetail2>
                     <PersonText>小学校2年から高校3年まで野球部に所属</PersonText>

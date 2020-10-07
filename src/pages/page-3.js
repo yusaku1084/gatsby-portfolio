@@ -21,7 +21,6 @@ const ThirdPage = () => {
           pagenum2 = "2"
           pagenum4 = "4"
         />
-        <Footer />
       </Layout>
     </>
   )

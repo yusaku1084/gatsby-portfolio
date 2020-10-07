@@ -143,6 +143,7 @@ const Work = styled.div`
 const WorksWrapper = styled.div`
   margin: 0 auto;
   width: 84%;
+  padding-top: 80px;
   padding-bottom: 80px;
   max-width: 1147px;
   ${media.handheld768`

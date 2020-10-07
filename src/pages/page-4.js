@@ -21,7 +21,6 @@ const FourthPage = () => {
           pagenum2 = "2"
           pagenum3 = "3"
         />
-        <Footer />
       </Layout>
     </>
   )

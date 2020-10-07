@@ -4,6 +4,7 @@ import ColumnTitle from "../component/ColumnTitle"
 import { graphql,useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import {media} from "../utils/style-utils"
+import { faBorderAll, faCalendarDay, faDesktop } from '@fortawesome/free-solid-svg-icons'
 
 const Works = () => {
 
@@ -31,9 +32,16 @@ const Works = () => {
         />
       </Topin>
       <Content2>
-      <ColumnTitle title="担当" />
-      <Tx>就活でのポートフォリオサイトのために作成。<br />同時にReactJSなども学びたかったため、GatsbyJSを用いて作成した。今まで扱ったことのない言語だったので、初めてのコンポーネントの理解にとても時間がかかった。フロントエンドエンジニアを目指す僕にとって、エンジニアの難しさと楽しさの両方を改めて知る機会になった。このサイトをベースにBlogなども書いていこうと思う。</Tx>
-      <ColumnTitle title="制作期間" />
+      <ColumnTitle title="ポートフォリオ"  icon={faDesktop} />
+      <Tx>就活でのポートフォリオサイトのために作成。
+        <br />同時にReactJSなども学びたかったかつGraphQLによりバックエンドも少し触れる、またポートフォリオサイトのためページを早い静的サイトにしたかったためGatsbyJSを用いて作成しました。今まで扱ったことのない言語だったので、初めてのコンポーネントの理解にとても時間がかかりました。フロントエンドエンジニアを目指す自分にとって、エンジニアの難しさと楽しさの両方を改めて知る機会になりました。このサイトをベースにBlogなども書いていこうと思います。
+        <br />(2020/10/7 追記)
+        <br />ヘッドレスCMSのContentfulを用いてブログを実装しました。
+        <br />またメタデータなどもきちんと設定しSEO対策も取り入れ、以前までの課題であったサイトのレスポンシブ対応を完了。
+        </Tx>
+      <ColumnTitle title="担当"  icon={faBorderAll}/>
+      <Tx>コーディング</Tx>
+      <ColumnTitle title="制作期間" icon={faCalendarDay}/>
       <Tx>2020/3/21 - 3/25</Tx>
       </Content2>
     </Box>

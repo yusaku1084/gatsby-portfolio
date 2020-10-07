@@ -4,6 +4,7 @@ import ColumnTitle from "../component/ColumnTitle"
 import { graphql,useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import {media} from "../utils/style-utils"
+import { faBorderAll, faCalendarDay, faDesktop } from '@fortawesome/free-solid-svg-icons'
 
 const Works = () => {
 
@@ -31,9 +32,11 @@ const Works = () => {
         />
       </Topin>
       <Content2>
-      <ColumnTitle title="担当" />
+      <ColumnTitle title="袴美人" icon={faDesktop}  />
       <Tx>BootCampの課題で作成しました。<br />課題はワイヤーフレームを掲示され、美学生図鑑というサイトを参考にデザインを作成するというものでした。<br />ワイヤーフレームを他人にもらい、デザインすることは初めてだったので、ワイヤーフレームの意味の理解や参考の難しさに時間を取られましたが、とてもいい経験になりました。</Tx>
-      <ColumnTitle title="制作期間" />
+      <ColumnTitle title="担当"  icon={faBorderAll}/>
+      <Tx>デザイン</Tx>
+      <ColumnTitle title="制作期間" icon={faCalendarDay} />
       <Tx>2020/2/16 - 2/26 (BootCamp提出後の訂正時間なども込)</Tx>
       </Content2>
     </Box>
