@@ -43,7 +43,7 @@ const Works = (props) => {
         <Box change="true">
           {props.pagenum2 &&
             <WorksContent
-              href="/page-2"
+              href="/rixis"
               fluid={data.out01.childImageSharp.fluid}
               alt="実績①"
               site="RIXIS SPsite"
@@ -52,7 +52,7 @@ const Works = (props) => {
           }
           {props.pagenum3 &&
             <WorksContent
-              href="/page-3"
+              href="/hakamabijinn"
               fluid={data.out02.childImageSharp.fluid}
               alt="実績②"
               site="袴美人サイト"
@@ -61,7 +61,7 @@ const Works = (props) => {
           }
           {props.pagenum4 &&
             <WorksContent
-              href="/page-4"
+              href="/portfolio"
               fluid={data.out03.childImageSharp.fluid}
               alt="実績③"
               site="Portfolio"
@@ -77,7 +77,7 @@ const Works = (props) => {
         <Box>
           {props.pagenum2 &&
             <WorksContent
-              href="/page-2"
+              href="/rixis"
               fluid={data.out01.childImageSharp.fluid}
               alt="実績①"
               site="RIXIS SPsite"
@@ -86,7 +86,7 @@ const Works = (props) => {
           }
           {props.pagenum3 &&
             <WorksContent
-              href="/page-3"
+              href="/hakamabijinn"
               fluid={data.out02.childImageSharp.fluid}
               alt="実績②"
               site="袴美人サイト"
@@ -95,7 +95,7 @@ const Works = (props) => {
           }
           {props.pagenum4 &&
             <WorksContent
-              href="/page-4"
+              href="/portfolio"
               fluid={data.out03.childImageSharp.fluid}
               alt="実績③"
               site="Portfolio"

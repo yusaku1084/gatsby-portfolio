@@ -3,14 +3,19 @@ import Works from "../component/Works"
 import Product2 from "../component/Product2"
 import SubTitle from "../component/SubTitle"
 import Layout from "../component/layout"
-import Footer from "../component/Footer"
+import SEO from "../component/seo"
 
 
-const ThirdPage = () => {
+const ThirdPage = (location) => {
 
   return (
     <>
       <Layout>
+        <SEO
+          pagetitle="袴美人の紹介"
+          pagedesc="袴美人の紹介です"
+          pagepath={location.pathname}
+        />
         <SubTitle
           subtitle= "WORKS"
           exp= "制作実績など"

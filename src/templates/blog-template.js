@@ -41,7 +41,7 @@ const Blog = ({location,data,pageContext}) =>(
   <Layout>
     <SEO 
       pagetitle="ブログ"
-      pagedesc="ESSENTIALSのブログです"
+      pagedesc="YusakuSogabeのブログです"
       pagepath={location.pathname}
     />
     <Content>

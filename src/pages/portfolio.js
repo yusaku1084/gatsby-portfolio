@@ -1,25 +1,29 @@
 import React from "react"
 import Works from "../component/Works"
-import Product from "../component/Product"
+import Product3 from "../component/Product3"
 import SubTitle from "../component/SubTitle"
 import Layout from "../component/layout"
-import Footer from "../component/Footer"
+import SEO from "../component/seo"
 
-
-const SecondPage = () => {
+const FourthPage = (location) => {
 
   return (
     <>
       <Layout>
+        <SEO
+          pagetitle="ポートフォリオサイトの紹介"
+          pagedesc="ポートフォリオサイトの紹介です"
+          pagepath={location.pathname}
+        />
         <SubTitle
           subtitle= "WORKS"
           exp= "制作実績など"
         />
-        <Product />
+        <Product3 />
         <Works
           change = "true"
+          pagenum2 = "2"
           pagenum3 = "3"
-          pagenum4 = "4"
         />
       </Layout>
     </>
@@ -27,4 +31,4 @@ const SecondPage = () => {
 }
 
 
-export default SecondPage
+export default FourthPage

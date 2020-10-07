@@ -4,7 +4,6 @@ import ColumnTitle from './ColumnTitle.js'
 import { graphql,useStaticQuery,Link } from "gatsby"
 import Img from "gatsby-image"
 import { media } from "../utils/style-utils"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen,faHeart } from '@fortawesome/free-solid-svg-icons'
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
@@ -121,12 +120,6 @@ const Content = styled.div`
     `}
 `
 
-
-const Icon = styled(FontAwesomeIcon)`
-  position: absolute;
-  left: 17px;
-  top: 13px;
-`
 const Blog = styled.article`
   margin-bottom: 15px;
   padding-left: 25px;

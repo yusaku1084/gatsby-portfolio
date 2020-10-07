@@ -25,6 +25,22 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `YusakuSogabe 曽我部祐作`,
+        short_name: `YusakuSogabe`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#007E86`,
+        display: `standalone`,
+        icon: `src/images/logo.png`,
+        icon_options: {
+          purpose: `maskable`,
+        },
+      },
+    },
+    `gatsby-plugin-offline`,
     `gatsby-plugin-material-ui`,
     'gatsby-plugin-styled-components',
     {
