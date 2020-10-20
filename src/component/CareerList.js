@@ -3,9 +3,6 @@ import styled from 'styled-components'
 import ColumnTitle from './ColumnTitle.js'
 import { media } from "../utils/style-utils"
 import { faAddressBook,faLaptopCode,faUserTie,faShoePrints } from '@fortawesome/free-solid-svg-icons'
-import "@fortawesome/fontawesome-svg-core/styles.css"
-import { config } from "@fortawesome/fontawesome-svg-core"
-config.autoAddCss = false
 
 const CareerList01 = () => (
   <List>

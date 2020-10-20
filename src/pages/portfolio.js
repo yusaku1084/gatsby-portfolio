@@ -1,9 +1,9 @@
 import React from "react"
-import Works from "../component/Works"
-import Product3 from "../component/Product3"
-import SubTitle from "../component/SubTitle"
 import Layout from "../component/layout"
 import SEO from "../component/seo"
+import SubTitle from "../component/SubTitle"
+import Product3 from "../component/Product3"
+import Works from "../component/Works"
 
 const FourthPage = (location) => {
 

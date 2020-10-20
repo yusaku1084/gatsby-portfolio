@@ -5,9 +5,6 @@ import { graphql,useStaticQuery,Link } from "gatsby"
 import Img from "gatsby-image"
 import { media } from "../utils/style-utils"
 import { faPen,faHeart } from '@fortawesome/free-solid-svg-icons'
-import "@fortawesome/fontawesome-svg-core/styles.css"
-import { config } from "@fortawesome/fontawesome-svg-core"
-config.autoAddCss = false
 
 const CareerList = () => {
 

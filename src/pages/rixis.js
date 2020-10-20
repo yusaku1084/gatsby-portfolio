@@ -1,9 +1,9 @@
 import React from "react"
-import Works from "../component/Works"
-import Product from "../component/Product"
-import SubTitle from "../component/SubTitle"
 import Layout from "../component/layout"
 import SEO from "../component/seo"
+import SubTitle from "../component/SubTitle"
+import Product from "../component/Product"
+import Works from "../component/Works"
 
 const SecondPage = (location) => {
 

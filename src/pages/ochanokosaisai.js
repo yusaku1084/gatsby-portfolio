@@ -1,11 +1,11 @@
 import React from "react"
-import Works from "../component/Works"
-import Product4 from "../component/Product4"
-import SubTitle from "../component/SubTitle"
 import Layout from "../component/layout"
 import SEO from "../component/seo"
+import SubTitle from "../component/SubTitle"
+import Product4 from "../component/Product4"
+import Works from "../component/Works"
 
-const FourthPage = (location) => {
+const FifthPage = (location) => {
 
   return (
     <>
@@ -32,4 +32,4 @@ const FourthPage = (location) => {
 }
 
 
-export default FourthPage
+export default FifthPage

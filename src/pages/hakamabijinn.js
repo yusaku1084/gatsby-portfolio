@@ -1,10 +1,9 @@
 import React from "react"
-import Works from "../component/Works"
-import Product2 from "../component/Product2"
-import SubTitle from "../component/SubTitle"
 import Layout from "../component/layout"
 import SEO from "../component/seo"
-
+import SubTitle from "../component/SubTitle"
+import Product2 from "../component/Product2"
+import Works from "../component/Works"
 
 const ThirdPage = (location) => {
 

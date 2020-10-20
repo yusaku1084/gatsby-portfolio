@@ -41,7 +41,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-material-ui`,
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options:  {
+        stylesProvider:{
+          injectFirst: true,
+        },
+      },
+    },
     `gatsby-plugin-sass`,
     'gatsby-plugin-styled-components',
     {
