@@ -12,6 +12,7 @@ import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 SwiperCore.use([Pagination, Navigation]);
 
+
 const Works = (props) => {
 
   const data = useStaticQuery(graphql`
