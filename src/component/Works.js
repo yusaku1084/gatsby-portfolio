@@ -5,6 +5,12 @@ import Img from "gatsby-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { media } from "../utils/style-utils"
+import SwiperCore, { Pagination, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+SwiperCore.use([Pagination, Navigation]);
 
 const Works = (props) => {
 
@@ -31,6 +37,13 @@ const Works = (props) => {
           }
         }
       }
+      out04: file(relativePath: {eq: "output04.png"}) {
+        childImageSharp {
+          fluid(maxWidth: 285, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
     }
   `)
 
@@ -41,7 +54,14 @@ const Works = (props) => {
       <Work change="true">
       <WorksWrapper change="true">
         <Box change="true">
+          <Swiper 
+          spaceBetween={0}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          navigation
+          >
           {props.pagenum2 &&
+            <SwiperSlide>
             <WorksContent
               href="/rixis"
               fluid={data.out01.childImageSharp.fluid}
@@ -49,8 +69,10 @@ const Works = (props) => {
               site="RIXIS SPsite"
               cording="design / Sketch"
             />
+            </SwiperSlide>
           }
           {props.pagenum3 &&
+            <SwiperSlide>
             <WorksContent
               href="/hakamabijinn"
               fluid={data.out02.childImageSharp.fluid}
@@ -58,8 +80,10 @@ const Works = (props) => {
               site="袴美人サイト"
               cording="design / Sketch"
             />
+            </SwiperSlide>
           }
           {props.pagenum4 &&
+            <SwiperSlide>
             <WorksContent
               href="/portfolio"
               fluid={data.out03.childImageSharp.fluid}
@@ -67,7 +91,20 @@ const Works = (props) => {
               site="Portfolio"
               cording="coding / GatsbyJS"
             />
+            </SwiperSlide>
           }
+          {props.pagenum5 &&
+            <SwiperSlide>
+            <WorksContent
+              href="/ochanokosaisai"
+              fluid={data.out04.childImageSharp.fluid}
+              alt="実績④"
+              site="12代目お茶の子祭々HP"
+              cording="coding / GatsbyJS"
+            />
+            </SwiperSlide>
+          }
+          </Swiper>
         </Box>
       </WorksWrapper>
       </Work>
@@ -75,7 +112,14 @@ const Works = (props) => {
       <Work>
       <WorksWrapper>
         <Box>
+        <Swiper 
+          spaceBetween={0}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          navigation
+          >
           {props.pagenum2 &&
+            <SwiperSlide>
             <WorksContent
               href="/rixis"
               fluid={data.out01.childImageSharp.fluid}
@@ -83,8 +127,10 @@ const Works = (props) => {
               site="RIXIS SPsite"
               cording="design / Sketch"
             />
+            </SwiperSlide>
           }
           {props.pagenum3 &&
+            <SwiperSlide>
             <WorksContent
               href="/hakamabijinn"
               fluid={data.out02.childImageSharp.fluid}
@@ -92,8 +138,10 @@ const Works = (props) => {
               site="袴美人サイト"
               cording="design / Sketch"
             />
+            </SwiperSlide>
           }
           {props.pagenum4 &&
+            <SwiperSlide>
             <WorksContent
               href="/portfolio"
               fluid={data.out03.childImageSharp.fluid}
@@ -101,7 +149,20 @@ const Works = (props) => {
               site="Portfolio"
               cording="coding / GatsbyJS"
             />
+            </SwiperSlide>
           }
+          {props.pagenum5 &&
+            <SwiperSlide>
+            <WorksContent
+              href="/ochanokosaisai"
+              fluid={data.out04.childImageSharp.fluid}
+              alt="実績④"
+              site="12代目お茶の子祭々HP"
+              cording="coding / GatsbyJS"
+            />
+            </SwiperSlide>
+          }
+          </Swiper>
         </Box>
       </WorksWrapper>
       </Work>
@@ -154,25 +215,18 @@ const WorksWrapper = styled.div`
 `
 
 const Box = styled.div`
-  margin: 0 auto;
-  ${media.handheld768`
-    display:-webkit-box;
-    display:-ms-flexbox;
-    display:flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    `}
+  margin: 0 auto;  
 `
 
 const Content = styled.div`
-  max-width: 320px;
-  width: 100%;
+  max-width: 200px;
+  width: 70%;
   text-align: center;
   margin: 60px auto 0px;
   ${media.handheld768`
     margin: 0 auto;
-    width: 31.5%
+    max-width: 320px;
+    width: 50%
   `}
 `
 
@@ -217,4 +271,6 @@ const TextBold = styled(Text)`
 
 const Icon = styled(FontAwesomeIcon)`
   color: #000;
+  display: inline-block;
+  padding-bottom: 40px;
 `

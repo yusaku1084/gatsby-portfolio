@@ -25,6 +25,7 @@ const ThirdPage = (location) => {
           change = "true"
           pagenum2 = "2"
           pagenum4 = "4"
+          pagenum5 = "5"
         />
       </Layout>
     </>

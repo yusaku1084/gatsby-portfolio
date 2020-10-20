@@ -66,7 +66,7 @@ const Header = () =>{
             <Navli><Link to={"/"}>TOP</Link></Navli>
             <Navli className="last"><Link to={"/blog/"}>BLOG</Link></Navli>
           </Navul>
-      </nav>
+        </nav>
       </Container>
     </HeaderColor>
   )

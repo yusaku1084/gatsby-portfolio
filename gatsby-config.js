@@ -42,6 +42,7 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-material-ui`,
+    `gatsby-plugin-sass`,
     'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-source-contentful`,

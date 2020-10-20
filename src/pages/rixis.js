@@ -24,6 +24,7 @@ const SecondPage = (location) => {
           change = "true"
           pagenum3 = "3"
           pagenum4 = "4"
+          pagenum5 = "5"
         />
       </Layout>
     </>

@@ -345,7 +345,7 @@ const Header = (props) => {
     }
   }
 
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const widthchange = (width) => (
     (width >= 1143) ?　342.5:
     (width >= 768) ? 342.5-((1143-width)*0.42):
