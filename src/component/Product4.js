@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ColumnTitle from "../component/ColumnTitle"
-import { graphql,useStaticQuery } from "gatsby"
+import { graphql,Link,useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import {media} from "../utils/style-utils"
 import { faBorderAll, faCalendarDay, faDesktop } from '@fortawesome/free-solid-svg-icons'
@@ -38,6 +38,7 @@ const Works = () => {
         <br />動画の素材がとてもよく、見せてもらった時からヘッダーの背景にしたいと考えていたので実装。
         <br />また、各SNSのプラットフォームの役割としてのホームページになるというニーズに応えるための工夫を取り入れました。
         <br />メタデータなどもきちんと設定しSEO対策も取り入れ、レスポンシブ対応はもちろん、動画を取り入れることで重くなってしまいがちなサイトをいかに早くするかにこだわりました。
+        <br /><br /><Link to="https://ochanokosaisai12th.netlify.app/">12代目お茶の子祭々HP</Link>
         </Tx>
       <ColumnTitle title="担当"  icon={faBorderAll}/>
       <Tx>デザイン/コーディング</Tx>
