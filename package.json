@@ -46,7 +46,7 @@
     "react-id-swiper": "^4.0.0",
     "ssr-window": "^2.0.0",
     "styled-components": "^5.2.0",
-    "swiper": "^6.3.3"
+    "swiper": "^6.3.4"
   },
   "devDependencies": {
     "prettier": "2.1.2"
