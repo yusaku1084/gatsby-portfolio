@@ -5,13 +5,9 @@ import Img from "gatsby-image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { media } from "../utils/style-utils"
-import SwiperCore, { Pagination, Navigation } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/swiper.scss'
-import 'swiper/components/navigation/navigation.scss'
-import 'swiper/components/pagination/pagination.scss'
-SwiperCore.use([Pagination, Navigation])
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Works = (props) => {
 
@@ -48,128 +44,114 @@ const Works = (props) => {
     }
   `)
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  }
 
-  return(
-    <>
-      {props.change ? 
-      <Work change="true">
-      <WorksWrapper change="true">
-        <Box change="true">
-          <Swiper 
-          spaceBetween={0}
-          slidesPerView={1}
-          pagination={{ clickable: true }}
-          navigation
-          >
-          {props.pagenum2 &&
-            <SwiperSlide>
-            <WorksContent
-              href="/rixis"
-              fluid={data.out01.childImageSharp.fluid}
-              alt="実績①"
-              site="RIXIS SPsite"
-              cording="design / Sketch"
-            />
-            </SwiperSlide>
+      return(
+        <>
+          {props.change ? 
+          <Work change="true">
+          <WorksWrapper change="true">
+            <Box change="true">
+              <Slider 
+              {...settings}
+              >
+              {props.pagenum2 &&
+                <WorksContent
+                  href="/rixis"
+                  fluid={data.out01.childImageSharp.fluid}
+                  alt="実績①"
+                  site="RIXIS SPsite"
+                  cording="design / Sketch"
+                />
+              }
+              {props.pagenum3 &&
+                <WorksContent
+                  href="/hakamabijinn"
+                  fluid={data.out02.childImageSharp.fluid}
+                  alt="実績②"
+                  site="袴美人サイト"
+                  cording="design / Sketch"
+                />
+              }
+              {props.pagenum4 &&
+                <WorksContent
+                  href="/portfolio"
+                  fluid={data.out03.childImageSharp.fluid}
+                  alt="実績③"
+                  site="Portfolio"
+                  cording="coding / GatsbyJS"
+                />
+              }
+              {props.pagenum5 &&
+                <WorksContent
+                  href="/ochanokosaisai"
+                  fluid={data.out04.childImageSharp.fluid}
+                  alt="実績④"
+                  site="12代目お茶の子祭々HP"
+                  cording="coding / GatsbyJS"
+                />
+              }
+              </Slider>
+            </Box>
+          </WorksWrapper>
+          </Work>
+          :
+          <Work>
+          <WorksWrapper>
+            <Box>
+            <Slider 
+              {...settings}
+            >
+              {props.pagenum2 &&
+                <WorksContent
+                  href="/rixis"
+                  fluid={data.out01.childImageSharp.fluid}
+                  alt="実績①"
+                  site="RIXIS SPsite"
+                  cording="design / Sketch"
+                />
+              }
+              {props.pagenum3 &&
+                <WorksContent
+                  href="/hakamabijinn"
+                  fluid={data.out02.childImageSharp.fluid}
+                  alt="実績②"
+                  site="袴美人サイト"
+                  cording="design / Sketch"
+                />
+              }
+              {props.pagenum4 &&
+                <WorksContent
+                  href="/portfolio"
+                  fluid={data.out03.childImageSharp.fluid}
+                  alt="実績③"
+                  site="Portfolio"
+                  cording="coding / GatsbyJS"
+                />
+              }
+              {props.pagenum5 &&
+                <WorksContent
+                  href="/ochanokosaisai"
+                  fluid={data.out04.childImageSharp.fluid}
+                  alt="実績④"
+                  site="12代目お茶の子祭々HP"
+                  cording="coding / GatsbyJS"
+                />
+              }
+            </Slider>
+            </Box>
+          </WorksWrapper>
+          </Work>
           }
-          {props.pagenum3 &&
-            <SwiperSlide>
-            <WorksContent
-              href="/hakamabijinn"
-              fluid={data.out02.childImageSharp.fluid}
-              alt="実績②"
-              site="袴美人サイト"
-              cording="design / Sketch"
-            />
-            </SwiperSlide>
-          }
-          {props.pagenum4 &&
-            <SwiperSlide>
-            <WorksContent
-              href="/portfolio"
-              fluid={data.out03.childImageSharp.fluid}
-              alt="実績③"
-              site="Portfolio"
-              cording="coding / GatsbyJS"
-            />
-            </SwiperSlide>
-          }
-          {props.pagenum5 &&
-            <SwiperSlide>
-            <WorksContent
-              href="/ochanokosaisai"
-              fluid={data.out04.childImageSharp.fluid}
-              alt="実績④"
-              site="12代目お茶の子祭々HP"
-              cording="coding / GatsbyJS"
-            />
-            </SwiperSlide>
-          }
-          </Swiper>
-        </Box>
-      </WorksWrapper>
-      </Work>
-      :
-      <Work>
-      <WorksWrapper>
-        <Box>
-        <Swiper 
-          spaceBetween={0}
-          slidesPerView={1}
-          pagination={{ clickable: true }}
-          navigation
-          >
-          {props.pagenum2 &&
-            <SwiperSlide>
-            <WorksContent
-              href="/rixis"
-              fluid={data.out01.childImageSharp.fluid}
-              alt="実績①"
-              site="RIXIS SPsite"
-              cording="design / Sketch"
-            />
-            </SwiperSlide>
-          }
-          {props.pagenum3 &&
-            <SwiperSlide>
-            <WorksContent
-              href="/hakamabijinn"
-              fluid={data.out02.childImageSharp.fluid}
-              alt="実績②"
-              site="袴美人サイト"
-              cording="design / Sketch"
-            />
-            </SwiperSlide>
-          }
-          {props.pagenum4 &&
-            <SwiperSlide>
-            <WorksContent
-              href="/portfolio"
-              fluid={data.out03.childImageSharp.fluid}
-              alt="実績③"
-              site="Portfolio"
-              cording="coding / GatsbyJS"
-            />
-            </SwiperSlide>
-          }
-          {props.pagenum5 &&
-            <SwiperSlide>
-            <WorksContent
-              href="/ochanokosaisai"
-              fluid={data.out04.childImageSharp.fluid}
-              alt="実績④"
-              site="12代目お茶の子祭々HP"
-              cording="coding / GatsbyJS"
-            />
-            </SwiperSlide>
-          }
-          </Swiper>
-        </Box>
-      </WorksWrapper>
-      </Work>
-      }
-    </ >
-  )
+        </ >
+      )
+
 }
 
 export default Works
@@ -216,7 +198,8 @@ const WorksWrapper = styled.div`
 `
 
 const Box = styled.div`
-  margin: 0 auto;  
+  margin: 0 auto; 
+  
 `
 
 const Content = styled.div`
